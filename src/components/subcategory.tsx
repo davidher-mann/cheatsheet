@@ -32,19 +32,19 @@ const Subcategory = ({ subcategory }: any) => {
             >
                 <h1 className="flex-1 text-sm tracking-wider">{subcategory.title}</h1>
                 <a
-                    className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-400 rounded-md dark:bg-gray-700 hover:bg-primary dark:hover:bg-primary"
-                  href={subcategory.docs}
+                    className="px-2 py-1 text-m font-bold text-white lowercase transition-colors duration-300 transform bg-gray-400 rounded-md dark:bg-gray-700 hover:bg-primary dark:hover:bg-primary"
+                  href={subcategory.parameter}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClickLink}
                 >
-                  Docs
+                  {subcategory.parameter}
                 </a>
             </div>
             <div className={classNames('bg-gray-200 dark:bg-gray-700 px-4 overflow-hidden', {
                 'h-0': !isVisible
             })}>
-                <p className="my-3 font-semibold leading-tight text-gray-800 dark:text-gray-200">{subcategory.description}</p>
+                <p className="my-3 leading-tight text-sm text-gray-800 dark:text-gray-200">{subcategory.description}</p>
                 <InfoTable table={subcategory.table} />
             </div>
         </div>
