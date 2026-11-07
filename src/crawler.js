@@ -13,7 +13,8 @@ document.querySelector("#app > div.min-w-0.flex.w-full.flex-1.\\/.pb-16.pl-4.pt-
 
         console.log(subCategory.querySelector("div:first-child a").href)
         subCat.title = subCategory.querySelector("div:first-child > span").innerHTML;
-        subCat.docs = subCategory.querySelector("div:first-child a").href;
+        subCat.link = subCategory.querySelector("div:first-child a").href;
+        subCat.parameter = subCategory.querySelector("div:first-child p").innerText;
         subCat.description = subCategory.querySelector("div:last-child div:first-child > p").innerHTML;
         subCat.table = [];
 
