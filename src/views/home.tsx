@@ -14,6 +14,7 @@ const Home = (props: any) => {
     const [cheatsheet, setCheatsheet] = useState<Category[]>(json);
 
     useEffect(() => {
+        //TODO: change do dataLayer push
         trackView('/cheatsheet');
     }, []);
 

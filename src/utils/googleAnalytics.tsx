@@ -1,12 +1,12 @@
 import ReactGA from 'react-ga';
 
-ReactGA.initialize('UA-110182129-1');
+ReactGA.initialize('UA-');
 let timeoutTrackSearch: any;
 
 export const trackView = (viewName: string) => {
     ReactGA.pageview(viewName);
 }
-
+// TODO: change to dataLayer push instead of GA event
 export const trackSearch = (searchText: string) => {
     clearTimeout(timeoutTrackSearch);
 
