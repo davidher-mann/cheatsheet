@@ -22,3 +22,21 @@ test('filters rows when only cells match', () => {
 test('empty search keeps everything', () => {
     expect(filterCheatsheet(data, '')).toEqual(data);
 });
+
+test('finds Snowplow parameters case-insensitively in the real data', () => {
+    const cheatsheet = require('../modules/cheatsheet.json');
+    const visible = filterCheatsheet(cheatsheet, 'TIMESTAMP')
+        .flatMap((category: any) => category.content)
+        .filter((subcategory: any) => subcategory.table.length > 0)
+        .map((subcategory: any) => subcategory.parameter);
+    expect(visible).toEqual(expect.arrayContaining(['dtm', 'stm', 'ttm']));
+});
+
+test('finds subcategories by their parameter name', () => {
+    const cheatsheet = require('../modules/cheatsheet.json');
+    const visible = filterCheatsheet(cheatsheet, 'refr')
+        .flatMap((category: any) => category.content)
+        .filter((subcategory: any) => subcategory.table.length > 0)
+        .map((subcategory: any) => subcategory.parameter);
+    expect(visible).toContain('refr');
+});

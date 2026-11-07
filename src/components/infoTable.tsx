@@ -54,7 +54,8 @@ const InfoTable = ({ table }: { table: string[][] }) => {
                                                 key={'td-' + index}
                                                 className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
                                                     'text-purple-700 dark:text-purple-300 whitespace-nowrap': index === 0,
-                                                    'text-blue-700 dark:text-blue-300': index === 1,
+                                                    // break-all: long Base64 / URL-encoded examples must wrap, otherwise they widen the whole layout
+                                                    'text-blue-700 dark:text-blue-300 break-all': index === 1,
                                                     'text-gray-500 dark:text-gray-300 text-xs': index === 2,
                                                 })}>{parseText(td)}</td>
                                         );

@@ -1,5 +1,5 @@
 {
-    "name": "tailwind-cheatsheet",
+    "name": "snowplow-cheatsheet",
     "version": "1.0.0",
     "private": true,
     "dependencies": {
@@ -30,9 +30,9 @@
     },
     "scripts": {
         "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
-        "build": "PUBLIC_URL=\"/cheatsheet/\" SKIP_PREFLIGHT_CHECK=true react-scripts build",
-        "postbuild": "rm -rf ../public/cheatsheet && mv build ../public/cheatsheet",
-        "test": "react-scripts test"
+        "build": "PUBLIC_URL=\"/\" SKIP_PREFLIGHT_CHECK=true react-scripts build",
+        "test": "react-scripts test",
+        "check-docs": "node scripts/check-docs.js"
     },
     "eslintConfig": {
         "extends": "react-app"

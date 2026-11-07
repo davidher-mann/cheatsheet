@@ -1,6 +1,7 @@
 export default interface Subcategory {
     title: string;
-    docs: string;
+    parameter: string;
+    link: string;
     description: string;
     table: string[][];
 }
