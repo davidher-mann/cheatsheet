@@ -10,7 +10,7 @@ import Footer from '../components/footer';
 
 const json = cheatsheetData as Category[];
 
-// Dark by default: the Snowplow logo is white and only readable on a dark background.
+// Dark by default; the logo follows the text color, so light mode works too.
 const isDarkMode = (): boolean => {
     try {
         return JSON.parse(localStorage.getItem('darkMode') || 'true') !== false;

@@ -1,12 +1,12 @@
 [
     {
         "title": "Event parameters",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#event-parameters",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#event-fields",
         "content": [
             {
                 "title": "Event",
                 "parameter": "e",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#event-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#event-fields",
                 "description": "Event type",
                 "table": [
                     [
@@ -34,7 +34,7 @@
             {
                 "title": "Event id",
                 "parameter": "eid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#event-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#event-fields",
                 "description": "Event UUID",
                 "table": [
                     [
@@ -59,12 +59,12 @@
     },
     {
         "title": "Self-describing events",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#self-describing-events",
+        "link": "https://docs.snowplow.io/docs/events/http-requests/#self-describing-event",
         "content": [
             {
                 "title": "Event properties (Base64 encoded)",
                 "parameter": "ue_px",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#self-describing-events",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/#self-describing-event",
                 "description": "The properties of the event",
                 "table": [
                     [
@@ -88,7 +88,7 @@
             {
                 "title": "Event properties",
                 "parameter": "ue_pr",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#self-describing-events",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/#self-describing-event",
                 "description": "The properties of the event",
                 "table": [
                     [
@@ -113,12 +113,12 @@
     },
     {
         "title": "Event Entity Tracking",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#event-entity-tracking",
+        "link": "https://docs.snowplow.io/docs/events/http-requests/#custom-entities",
         "content": [
             {
                 "title": "Event entities (Base64 encoded)",
                 "parameter": "cx",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#event-entity-tracking",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/#custom-entities",
                 "description": "An array of custom contexts / entities",
                 "table": [
                     [
@@ -142,7 +142,7 @@
             {
                 "title": "Event entities",
                 "parameter": "co",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#event-entity-tracking",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/#custom-entities",
                 "description": "An array of custom contexts / entities",
                 "table": [
                     [
@@ -167,12 +167,12 @@
     },
     {
         "title": "Application parameters",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#application-parameters",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#application-fields",
         "content": [
             {
                 "title": "The tracker namespace",
                 "parameter": "tna",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#application-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#application-fields",
                 "description": "The tracker namespace parameter is used to distinguish between different trackers. The name can be any string that does not contain a colon or semi-colon character. Tracker namespacing allows you to run multiple trackers, pinging to different collectors.",
                 "table": [
                     [
@@ -196,7 +196,7 @@
             {
                 "title": "Application ID",
                 "parameter": "aid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#application-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#application-fields",
                 "description": "Unique identifier for website / application",
                 "table": [
                     [
@@ -220,7 +220,7 @@
             {
                 "title": "Platform",
                 "parameter": "p",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#application-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#application-fields",
                 "description": "The platform the app runs on",
                 "table": [
                     [
@@ -248,7 +248,7 @@
             {
                 "title": "Tracker version",
                 "parameter": "tv",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#application-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#snowplow-versions-fields",
                 "description": "Identifier for Snowplow tracker",
                 "table": [
                     [
@@ -273,12 +273,12 @@
     },
     {
         "title": "Timestamp parameters",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#timestamp-parameters",
+        "link": "https://docs.snowplow.io/docs/events/timestamps/",
         "content": [
             {
                 "title": "Device created timestamp",
                 "parameter": "dtm",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#timestamp-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#time-and-date-fields",
                 "description": "Timestamp when event occurred, as recorded by client device",
                 "table": [
                     [
@@ -302,7 +302,7 @@
             {
                 "title": "Device sent timestamp",
                 "parameter": "stm",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#timestamp-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#time-and-date-fields",
                 "description": "Timestamp when event was sent by client device to collector",
                 "table": [
                     [
@@ -326,7 +326,7 @@
             {
                 "title": "True timestamp",
                 "parameter": "ttm",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#timestamp-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#time-and-date-fields",
                 "description": "User-set exact timestamp",
                 "table": [
                     [
@@ -350,7 +350,7 @@
             {
                 "title": "Operating System timezone",
                 "parameter": "tz",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#timestamp-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#time-and-date-fields",
                 "description": "Time zone of client devices OS",
                 "table": [
                     [
@@ -375,12 +375,12 @@
     },
     {
         "title": "User related parameters",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
         "content": [
             {
                 "title": "Domain user id",
                 "parameter": "duid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
                 "description": "Unique identifier for a user, based on a first party cookie (so domain specific)",
                 "table": [
                     [
@@ -397,14 +397,14 @@
                     ],
                     [
                         "example value:",
-                        "bc2e92ec6c204a14"
+                        "85094061-f702-4b62-a46d-20f7226b4741"
                     ]
                 ]
             },
             {
                 "title": "Network user id",
                 "parameter": "tnuid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
                 "description": "User ID set by Snowplow collector endpoint using 1st or a 3rd party cookie (depending on the collector setup)",
                 "table": [
                     [
@@ -428,7 +428,7 @@
             {
                 "title": "User id",
                 "parameter": "uid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
                 "description": "Unique identifier for user, set by the business using setUserId",
                 "table": [
                     [
@@ -452,7 +452,7 @@
             {
                 "title": "Domain Session Idx",
                 "parameter": "vid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
                 "description": "Index of number of visits that this user_id has made to this domain. 1 is first visit.",
                 "table": [
                     [
@@ -476,7 +476,7 @@
             {
                 "title": "Domain Session Id",
                 "parameter": "sid",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
                 "description": "Unique identifier (UUID) for this visit of this user_id to this domain",
                 "table": [
                     [
@@ -500,7 +500,7 @@
             {
                 "title": "User IP address",
                 "parameter": "ip",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#user-related-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#user-fields",
                 "description": "IP address override. This is useful, if traffic is being proxied to a Snowplow collector (optional, as IP Address will be automatically captured by collector)",
                 "table": [
                     [
@@ -525,12 +525,12 @@
     },
     {
         "title": "Platform parameters",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#web-specific-fields",
         "content": [
             {
                 "title": "Page URL",
                 "parameter": "url",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-fields",
                 "description": "Page URL",
                 "table": [
                     [
@@ -550,7 +550,7 @@
             {
                 "title": "Useragent",
                 "parameter": "ua",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#browser-fields",
                 "description": "Useragent, by default from navigator.userAgent",
                 "table": [
                     [
@@ -570,7 +570,7 @@
             {
                 "title": "Page title",
                 "parameter": "page",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-fields",
                 "description": "Page title, by default from document.title",
                 "table": [
                     [
@@ -590,7 +590,7 @@
             {
                 "title": "Page referrer",
                 "parameter": "refr",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-fields",
                 "description": "Page referrer, by default from document.referrer",
                 "table": [
                     [
@@ -609,8 +609,8 @@
             },
             {
                 "title": "Browser Cookies",
-                "parameter": "cookies",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "parameter": "cookie",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#browser-fields",
                 "description": "Does the browser permit cookies?",
                 "table": [
                     [
@@ -630,7 +630,7 @@
             {
                 "title": "Browser language",
                 "parameter": "lang",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#browser-fields",
                 "description": "Language the browser is set to, by default from navigator.language",
                 "table": [
                     [
@@ -643,14 +643,14 @@
                     ],
                     [
                         "example value:",
-                        "en-EN"
+                        "en-GB"
                     ]
                 ]
             },
             {
                 "title": "Adobe PDF plugin",
                 "parameter": "f_pdf",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#deprecated-fields",
                 "description": "Adobe PDF plugin installed?",
                 "table": [
                     [
@@ -659,7 +659,7 @@
                     ],
                     [
                         "column_name:",
-                        "br_features"
+                        "br_features_pdf"
                     ],
                     [
                         "example value:",
@@ -670,7 +670,7 @@
             {
                 "title": "Browser color depth",
                 "parameter": "cd",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#browser-fields",
                 "description": "Browser color depth",
                 "table": [
                     [
@@ -690,7 +690,7 @@
             {
                 "title": "Character encoding",
                 "parameter": "cs",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#document-fields",
                 "description": "Web page's character encoding",
                 "table": [
                     [
@@ -710,7 +710,7 @@
             {
                 "title": "Document size (width & height)",
                 "parameter": "ds",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#document-fields",
                 "description": "Web page width and height",
                 "table": [
                     [
@@ -730,7 +730,7 @@
             {
                 "title": "Screen resolution (width & height)",
                 "parameter": "res",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#device-fields",
                 "description": "Screen / monitor resolution",
                 "table": [
                     [
@@ -748,9 +748,29 @@
                 ]
             },
             {
+                "title": "Browser viewport (width & height)",
+                "parameter": "vp",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#browser-fields",
+                "description": "Size of the browser viewport",
+                "table": [
+                    [
+                        "type:",
+                        "text"
+                    ],
+                    [
+                        "column_name:",
+                        "br_viewwidth and br_viewheight"
+                    ],
+                    [
+                        "example value:",
+                        "693x1302"
+                    ]
+                ]
+            },
+            {
                 "title": "MAC address",
                 "parameter": "mac",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#platform-parameters",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#web-specific-fields",
                 "description": "MAC address for the device running the tracker.",
                 "table": [
                     [
@@ -771,12 +791,12 @@
     },
     {
         "title": "Page Pings",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#page-pings",
+        "link": "https://docs.snowplow.io/docs/events/http-requests/#page-ping",
         "content": [
             {
                 "title": "Minimum Page X offset",
                 "parameter": "pp_mix",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#page-pings",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-pings",
                 "description": "Minimum page x offset seen in the last ping period",
                 "table": [
                     [
@@ -800,7 +820,7 @@
             {
                 "title": "Maximum page x offset",
                 "parameter": "pp_max",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#page-pings",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-pings",
                 "description": "Maximum page x offset seen in the last ping period",
                 "table": [
                     [
@@ -824,7 +844,7 @@
             {
                 "title": "Minimum page y offset",
                 "parameter": "pp_miy",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#page-pings",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-pings",
                 "description": "Minimum page y offset seen in the last ping period",
                 "table": [
                     [
@@ -848,7 +868,7 @@
             {
                 "title": "Maximum page y offset",
                 "parameter": "pp_may",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#page-pings",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#page-pings",
                 "description": "Maximum page y offset seen in the last ping period",
                 "table": [
                     [
@@ -873,12 +893,12 @@
     },
     {
         "title": "HTTP Headers",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#http-headers",
+        "link": "https://docs.snowplow.io/docs/events/http-requests/",
         "content": [
             {
                 "title": "Content Type",
                 "parameter": "content-type",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#http-headers",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/",
                 "description": "The Content-Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending). See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type",
                 "table": [
                     [
@@ -894,7 +914,7 @@
             {
                 "title": "Anonymous Mode",
                 "parameter": "sp-anonymous",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#http-headers",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/",
                 "description": "Enables Server Side Anonymization, preventing the User IP Address and Network User ID from being collected. Values in the atomic events table if the header is present: network_userid: 00000000-0000-0000-0000-000000000000, user_id & domain_userid: null, IP address: unknown.",
                 "table": [
                     [
@@ -910,7 +930,7 @@
             {
                 "title": "Cookie",
                 "parameter": "cookie",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#http-headers",
+                "link": "https://docs.snowplow.io/docs/events/http-requests/",
                 "description": "Snowplow Collectors will collect any cookie information sent in the Cookie HTTP header. Cookies can be attached to events using the Cookie extractor enrichment.",
                 "table": [
                     [
@@ -923,12 +943,12 @@
     },
     {
         "title": "Reserved parameters",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#reserved-parameters",
+        "link": "https://docs.snowplow.io/docs/events/http-requests/",
         "content": [
             {
                 "title": "Collector URI",
                 "parameter": "u",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/pixel-tracker/#click-tracking",
+                "link": "https://docs.snowplow.io/docs/sources/pixel-tracker/#click-tracking",
                 "description": "U is a reserved parameter because it is used for click tracking in the Pixel Tracker to specify the collector URI",
                 "table": [
                     [
@@ -949,12 +969,12 @@
     },
     {
         "title": "Transaction tracking",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
         "content": [
             {
                 "title": "Order ID",
                 "parameter": "tr_id",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Order ID",
                 "table": [
                     [
@@ -978,7 +998,7 @@
             {
                 "title": "Transaction affiliation",
                 "parameter": "tr_af",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Transaction affiliation (e.g. channel)",
                 "table": [
                     [
@@ -995,14 +1015,14 @@
                     ],
                     [
                         "example value:",
-                        "202301-1"
+                        "web_shop"
                     ]
                 ]
             },
             {
                 "title": "Transaction value",
                 "parameter": "tr_tt",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Transaction total value",
                 "table": [
                     [
@@ -1026,7 +1046,7 @@
             {
                 "title": "Transaction tax",
                 "parameter": "tr_tx",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Transaction tax value (i.e. amount of VAT included)",
                 "table": [
                     [
@@ -1050,7 +1070,7 @@
             {
                 "title": "Transaction shipping",
                 "parameter": "tr_sh",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Delivery cost charged",
                 "table": [
                     [
@@ -1074,7 +1094,7 @@
             {
                 "title": "Delivery address: city",
                 "parameter": "tr_ci",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Delivery address: city",
                 "table": [
                     [
@@ -1098,7 +1118,7 @@
             {
                 "title": "Delivery address: state",
                 "parameter": "tr_st",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Delivery address: state",
                 "table": [
                     [
@@ -1122,7 +1142,7 @@
             {
                 "title": "Delivery address: country",
                 "parameter": "tr_co",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Delivery address: country",
                 "table": [
                     [
@@ -1146,7 +1166,7 @@
             {
                 "title": "Transaction Currency",
                 "parameter": "tr_cu",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Transaction Currency",
                 "table": [
                     [
@@ -1171,17 +1191,17 @@
     },
     {
         "title": "Transaction item events",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
         "content": [
             {
                 "title": "Order ID",
-                "parameter": "tr_id",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "parameter": "ti_id",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Transaction item events are separate events, representing the items of a transaction, which are linked to a Transaction event via ti_id which should map to tr_id of a transaction event.",
                 "table": [
                     [
                         "parameter:",
-                        "tr_id"
+                        "ti_id"
                     ],
                     [
                         "type:",
@@ -1189,7 +1209,7 @@
                     ],
                     [
                         "column_name:",
-                        "tr_orderid"
+                        "ti_orderid"
                     ],
                     [
                         "example value:",
@@ -1200,7 +1220,7 @@
             {
                 "title": "Item SKU",
                 "parameter": "ti_sk",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Item SKU",
                 "table": [
                     [
@@ -1224,7 +1244,7 @@
             {
                 "title": "Item name",
                 "parameter": "ti_nm",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Item name",
                 "table": [
                     [
@@ -1248,7 +1268,7 @@
             {
                 "title": "Item category",
                 "parameter": "ti_ca",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Item category",
                 "table": [
                     [
@@ -1272,7 +1292,7 @@
             {
                 "title": "Item price",
                 "parameter": "ti_pr",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Item price",
                 "table": [
                     [
@@ -1296,7 +1316,7 @@
             {
                 "title": "Item quantity",
                 "parameter": "ti_qu",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Item quantity",
                 "table": [
                     [
@@ -1320,7 +1340,7 @@
             {
                 "title": "Currency",
                 "parameter": "ti_cu",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#transaction-item-events",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#legacy-ecommerce-fields",
                 "description": "Currency",
                 "table": [
                     [
@@ -1345,12 +1365,12 @@
     },
     {
         "title": "Structured event tracking",
-        "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#structured-event-tracking",
+        "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#structured-events",
         "content": [
             {
                 "title": "Event Category",
                 "parameter": "se_ca",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#structured-event-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#structured-events",
                 "description": "The category of event. (Structured event tracking is a legacy format used to track events that were not natively supported by Snowplow).",
                 "table": [
                     [
@@ -1374,7 +1394,7 @@
             {
                 "title": "Event Action",
                 "parameter": "se_ac",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#structured-event-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#structured-events",
                 "description": "The (inter)action itself",
                 "table": [
                     [
@@ -1398,7 +1418,7 @@
             {
                 "title": "Event Label",
                 "parameter": "se_la",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#structured-event-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#structured-events",
                 "description": "A label often used to refer to the 'object' the action is performed on",
                 "table": [
                     [
@@ -1422,7 +1442,7 @@
             {
                 "title": "Event property",
                 "parameter": "se_pr",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#structured-event-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#structured-events",
                 "description": "A property associated with either the action or the object",
                 "table": [
                     [
@@ -1446,7 +1466,7 @@
             {
                 "title": "Event Value",
                 "parameter": "se_va",
-                "link": "https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/snowplow-tracker-protocol/#structured-event-tracking",
+                "link": "https://docs.snowplow.io/docs/fundamentals/canonical-event/#structured-events",
                 "description": "A value associated with the user action",
                 "table": [
                     [

@@ -1,7 +1,7 @@
 import Category from '../modules/models/category';
 import Subcategory from '../modules/models/subcategory';
 
-// If the search text appears in a subcategory's title or description the whole
+// If the search text appears in a subcategory's title, description or parameter the whole
 // table is kept, otherwise only the rows containing the text are kept.
 // Matching is case-insensitive.
 export const filterCheatsheet = (cheatsheet: Category[], text: string): Category[] => {
@@ -12,7 +12,7 @@ export const filterCheatsheet = (cheatsheet: Category[], text: string): Category
         ...category,
         content: category.content.map((subcategory: Subcategory) => ({
             ...subcategory,
-            table: matches(subcategory.title) || matches(subcategory.description)
+            table: matches(subcategory.title) || matches(subcategory.description) || matches(subcategory.parameter ?? '')
                 ? subcategory.table
                 : subcategory.table.filter(row => row.some(matches)),
         })),

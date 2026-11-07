@@ -50,7 +50,7 @@ const SearchBar = ({ search: onSearch }: { search: (text: string) => void }) => 
             <div className="container p-4 mx-auto">
                 <div className="flex flex-col lg:items-center lg:justify-center lg:flex-row lg:space-x-4">
                     <div className="flex flex-col items-center sm:flex-row sm:justify-center">
-                        <Logo className="object-cover object-left h-8" />
+                        <Logo className="object-cover object-left h-8 text-gray-800 dark:text-white" />
                         <h1 className="flex items-center pl-2 mt-2 text-lg text-gray-600 dark:border-gray-700 dark:text-gray-300 lg:mt-0 sm:ml-2 sm:border-l sm:border-gray-400">Cheatsheet <span className="flex items-center h-5 px-2 ml-2 text-xs font-bold text-white rounded-md bg-primary">{CHEATSHEET_VERSION}</span></h1>
                     </div>
 
