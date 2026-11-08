@@ -72,7 +72,9 @@ Four candidate locations were analyzed in detail:
    There is no `.catch()` handler or fallback state. If clipboard permissions are blocked or `document.execCommand('copy')` throws an exception, the promise rejects silently, leaving the user with zero visual feedback or error status.
 
 #### Would Making It Explicit Help?
-**Yes.** Centralizing toast notifications into an explicit application-level notification store or state machine (e.g. `IDLE` | `VISIBLE` | `ERROR`) would ensure that new notifications reset the display timer, clipboard errors trigger an error state, and toasts do not clash across component instances.
+**Yes, with proportionate scoping.**
+Introducing a heavyweight state machine library (such as XState) would be disproportionate for a small cheatsheet app. However, an explicit, lightweight mechanism is warranted:
+- **Proportionate Fix:** Since the project already uses `use-bus` (`dispatch` / `useBus`), toast notifications can be dispatched to a single top-level `<Toast />` component mounted in `App` or `Home` (e.g. `dispatch('ui/toast', { text, error })`). This naturally centralizes toast rendering to one slot, handles `.catch()` error reporting, and resets the dismiss timer via the bus event without adding new dependencies or heavy state stores. Alternatively, a local request counter (`clickCount`) in `InfoTable` would force `useEffect` to reset the timer on identical re-clicks.
 
 ---
 
@@ -106,9 +108,9 @@ Four candidate locations were analyzed in detail:
   React uses the `key` to preserve component local state across re-renders. Because the key is tied to the array index rather than a stable entity identifier (like `subcategory.parameter`), expanding the first item (`index = 0`) causes the *new* first item after a search filter to inherit the open `isVisible = true` state. The open/closed state tracks the slot index rather than the card itself.
 
 #### Would Making It Explicit Help?
-**Partially.** An FSM for a single binary toggle is over-engineering; however, the state should either:
-- Use a stable key (e.g. `key={subcategory.parameter}`), or
-- Lift expansion state into an explicit set of expanded card IDs (`expandedCardIds: Set<string>`) managed centrally.
+**No; a formal state machine is disproportionate.**
+A state machine for a single binary accordion toggle (`isVisible`) is unnecessary over-engineering.
+- **Proportionate Fix:** The issue is purely an artifact of using array indices as React keys. Changing `key={'Subcat-' + index}` to a stable key (`key={subcategory.parameter}`) in `src/components/category.tsx:21` completely resolves the bug in a single line of code, ensuring state stays attached to the specific card regardless of filtering. Lifting state or introducing state machines would add unnecessary complexity.
 
 ---
 
@@ -130,7 +132,9 @@ Four candidate locations were analyzed in detail:
   - Clear button click / deletion: Cancels pending timer, invokes `onSearch('')`, transitions to `EMPTY`.
 
 #### Would Making It Explicit Help?
-**Moderately.** While handling debouncing via `useRef` and `setTimeout` is common in React, the dual-mode threshold (< 5 chars debounced vs. ≥ 5 chars immediate) represents an implicit mode switch. Encapsulating this behavior in a dedicated `useDebounce` hook or reducer would clarify lifecycle management and cleanup.
+**No; a state machine is disproportionate.**
+Modeling input debouncing as a state machine would be overkill for a search bar.
+- **Proportionate Fix:** The current implementation with `useRef` and `window.setTimeout` is concise and functional. If refactored in the future, standardizing on a simple debounced callback utility or a standard `useDebounce` hook is sufficient. No state machine or reducer is recommended.
 
 ---
 
@@ -153,11 +157,22 @@ Four candidate locations were analyzed in detail:
 
 ---
 
-## 3. Summary Matrix
+## 3. Summary & Proportionate Recommendations Matrix
 
-| Component | State Variables | Implicit Machine? | Active? | Primary Bugs / Risks | Recommended Fix |
+| Component | State Variables | Implicit Machine? | Active? | Primary Bugs / Risks | Proportionate Recommendation |
 |---|---|---|---|---|---|
-| **`InfoTable`** (`src/components/infoTable.tsx`) | `showToast`, `toastText`, `timer` | Yes (Timer & feedback lifecycle) | Active | Re-clicks on same text don't restart timer; multiple toasts clash on screen; unhandled clipboard rejection | Central toast notification context or reducer with request IDs and error handling |
-| **`Category` / `Subcategory`** (`src/components/category.tsx`, `src/components/subcategory.tsx`) | `isVisible`, bus events | Minor (Binary toggle) | Active | Keyed by index (`key={'Subcat-' + index}`); open/closed state attaches to list position after filtering | Use stable key (`key={subcategory.parameter}`) or lift expanded ID set |
-| **`SearchBar`** (`src/components/searchBar.tsx`) | `value`, `searchTimeout` | Minor (Debounce mode) | Active | Dual-mode threshold logic embedded in input handler | Extract to `useDebounce` hook |
-| **`ServiceWorker`** (`src/serviceWorker.ts`) | `installingWorker.state` | Yes (Browser SW lifecycle) | **Inactive** | Dead code; `register()` is never called and `index.tsx` unregisters it | Remove file or retain as dormant boilerplate |
+| **`InfoTable`** (`src/components/infoTable.tsx`) | `showToast`, `toastText`, `timer` | Yes (Timer & feedback lifecycle) | Active | Re-clicks on same text don't restart timer; multiple toasts clash on screen; unhandled clipboard rejection | Dispatch to single top-level toast via existing `use-bus` event (`ui/toast`), or add a local click counter and `.catch()` |
+| **`Category` / `Subcategory`** (`src/components/category.tsx`, `src/components/subcategory.tsx`) | `isVisible`, bus events | Minor (Binary toggle) | Active | Keyed by index (`key={'Subcat-' + index}`); open/closed state attaches to list position after filtering | One-line fix: use stable key `key={subcategory.parameter}`. No state machine needed |
+| **`SearchBar`** (`src/components/searchBar.tsx`) | `value`, `searchTimeout` | Minor (Debounce mode) | Active | Dual-mode threshold logic embedded in input handler | Keep as-is, or optionally extract to a standard `useDebounce` hook. No state machine needed |
+| **`ServiceWorker`** (`src/serviceWorker.ts`) | `installingWorker.state` | Yes (Browser SW lifecycle) | **Inactive** | Dead code; `register()` is never called and `index.tsx` unregisters it | Delete dead file and unregister call, or leave untouched as harmless CRA boilerplate |
+
+---
+
+## 4. Guiding Principle: Proportionate Engineering
+
+For a focused client-side reference application like `cheatsheet`:
+- **Avoid heavyweight solutions:** Introducing third-party state machine frameworks (such as XState) or extensive global stores would introduce unnecessary bundle weight, boilerplate, and cognitive overhead.
+- **Prefer targeted, idiomatic fixes:** The bugs discovered during this analysis can all be resolved cleanly with minimal changes:
+  1. Fixing the key in `category.tsx:21` is a one-line change.
+  2. Unifying toast notifications through the already-installed `use-bus` event bus requires minimal glue code and fixes timer resets and collisions cleanly.
+  3. Search debouncing is small and requires no architectural changes.
