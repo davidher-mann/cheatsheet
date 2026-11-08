@@ -17,8 +17,8 @@ const Category = ({ category }: { category: CategoryModel }) => {
         })}>{category.title}</h2>
       </a>
       {
-        category.content.map((subcategory: Subcategory, index: number) => {
-          return subcategory.table.length > 0 && <SubcategoryComponent key={'Subcat-' + index} subcategory={subcategory} />;
+        category.content.map((subcategory: Subcategory) => {
+          return subcategory.table.length > 0 && <SubcategoryComponent key={subcategory.parameter} subcategory={subcategory} />;
         })
       }
     </div>
