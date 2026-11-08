@@ -6,6 +6,8 @@ import { Toast } from "./toast";
 const InfoTable = ({ table }: { table: string[][] }) => {
     const [showToast, setShowToast] = useState(false);
     const [toastText, setToastText] = useState("");
+    const [isError, setIsError] = useState(false);
+    const [toastCount, setToastCount] = useState(0);
 
     const parseText = (text: string): React.ReactNode => {
         if(text.includes("rgb(") || text === "transparent")
@@ -25,16 +27,25 @@ const InfoTable = ({ table }: { table: string[][] }) => {
         if (!showToast) return;
         const timer = setTimeout(() => setShowToast(false), 5000);
         return () => clearTimeout(timer);
-    }, [showToast, toastText]);
+    }, [showToast, toastCount]);
 
     function handleClick(td: string) {
-        setToastText(td)
-        setShowToast(true)
+        setToastText(td);
+        setIsError(false);
+        setShowToast(true);
+        setToastCount((c) => c + 1);
+    }
+
+    function handleError(td: string) {
+        setToastText(`Failed to copy "${td}" to clipboard`);
+        setIsError(true);
+        setShowToast(true);
+        setToastCount((c) => c + 1);
     }
 
     return (
         <>
-            {showToast && <Toast text={toastText} /> }
+            {showToast && <Toast text={toastText} isError={isError} /> }
             <table className="w-full mb-4 bg-gray-100 rounded dark:bg-gray-900">
                 <tbody>
                 {
@@ -46,10 +57,12 @@ const InfoTable = ({ table }: { table: string[][] }) => {
                                         return (
                                             <td
                                                 onClick={async () => {
-                                                    await copyTextToClipboard(td).then(() => {
-                                                            handleClick(td)
-                                                        }
-                                                    );
+                                                    try {
+                                                        await copyTextToClipboard(td);
+                                                        handleClick(td);
+                                                    } catch (err) {
+                                                        handleError(td);
+                                                    }
                                                 }}
                                                 key={'td-' + index}
                                                 className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
